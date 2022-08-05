@@ -1,0 +1,4 @@
+**/.git
+**/node_modules
+aws-lambda-rie-x86_64
+aws-lambda-rie

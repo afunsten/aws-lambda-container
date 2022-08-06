@@ -6,8 +6,8 @@ const fetch = require('node-fetch');
 const AWS = require('aws-sdk');
 const s3 = new AWS.S3();
 
-// BUCKET="$BUCKET" node -p -e 'const app=require("./var/task/app.js"); app.handler({"key": "ok"})'
-module.exports.handler = (event, context, callback) => {
+// BUCKET="$BUCKET" node -p -e 'const app=require("./var/task/app.js"); app.myHandler({"key": "ok"})'
+module.exports.myHandler = (event, context, callback) => {
   console.log("app.handler( event:" + JSON.stringify(event, null, 2) + ")" );
   let env = "ENVIRONMENT VARIABLES\n" + JSON.stringify(process.env, null, 2);
   //console.log(env);

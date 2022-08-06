@@ -8,7 +8,7 @@
   "scripts": {
     "lint": "echo LINT; ./node_modules/jshint/bin/jshint var/task/app.js",
     "build": "echo BUILD; docker build -t myfunction:latest .",
-    "test": "echo TEST; docker run -e AWS_ACCESS_KEY_ID:${AWS_ACCESS_KEY_ID} -e AWS_SECRET_ACCESS_KEY:${AWS_SECRET_ACCESS_KEY} -e AWS_SESSION_TOKEN:${AWS_SESSION_TOKEN} -e AWS_DEFAULT_REGION:${AWS_DEFAULT_REGION} -it -v ${HOME}/.aws-lambda-rie/aws-lambda-rie:/usr/local/bin/aws-lambda-rie --rm -p 9000:8080 myfunction:latest /lambda-entrypoint.sh app.handler",
+    "test": "echo TEST; docker run -it -v ${HOME}/.aws-lambda-rie/aws-lambda-rie:/usr/local/bin/aws-lambda-rie --env-file .env --rm -p 9000:8080 myfunction:latest",
     "all": "npm run lint && npm run build && npm run test"
   },
   "dependencies": {

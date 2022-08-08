@@ -11,6 +11,8 @@ export _HANDLER="$1"
 
 RUNTIME_ENTRYPOINT=/var/runtime/bootstrap
 if [ -z "${AWS_LAMBDA_RUNTIME_API}" ]; then
+  echo "AWS_ACCESS_KEY_ID:$AWS_ACCESS_KEY_ID";
+
   exec /usr/local/bin/aws-lambda-rie $RUNTIME_ENTRYPOINT
 else
   exec $RUNTIME_ENTRYPOINT "$@"

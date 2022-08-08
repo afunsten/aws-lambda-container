@@ -6,13 +6,13 @@
   "author": "",
   "license": "MIT",
   "scripts": {
-    "lint": "echo LINT; ./node_modules/jshint/bin/jshint var/task/app.js",
-    "build": "echo BUILD; docker build -t myfunction:latest .",
-    "test": "echo TEST; docker run -it -v ${HOME}/.aws-lambda-rie/aws-lambda-rie:/usr/local/bin/aws-lambda-rie --env-file .env --rm -p 9000:8080 myfunction:latest",
+    "lint": "echo LINT; ./node_modules/jshint/bin/jshint var/task/*",
+    "build": "echo BUILD; docker build -t mycontainer:latest .",
+    "test": "echo TEST; docker run -it -v ${HOME}/.aws/config:/root/.aws/config -v /tmp:/tmp -v ${HOME}/.aws-lambda-rie/aws-lambda-rie:/usr/local/bin/aws-lambda-rie -e AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} -e AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} -e AWS_SESSION_TOKEN=${AWS_SESSION_TOKEN} -e AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION} --env-file .env --rm -p 9000:8080 mycontainer:latest",
     "all": "npm run lint && npm run build && npm run test"
   },
   "dependencies": {
-    "aws-sdk": "^2.7.9",
+    "aws-sdk": "2.1083.0",
     "jshint": "^2.13.5",
     "node-fetch": "^1.6.3"
   }

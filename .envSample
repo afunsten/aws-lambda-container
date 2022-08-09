@@ -1,2 +1,7 @@
-BUCKET="${BUCKET}"
+S3_BUCKET="${BUCKET}"
+S3_Input_FilePath=app/input.txt
+S3_Output_FilePath=app/output.txt
+
+TMP_File=/tmp/env.txt
+
 AWS_SDK_LOAD_CONFIG=1
